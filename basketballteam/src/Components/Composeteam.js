@@ -10,18 +10,45 @@ function Composeteam(props) {
     const [errorMsg, setErrorMsg] = useState({ FirstName: '', LastName: '', Height: '', Position: '' });
 
     const setNameHandler = (e) => {
+        if (e.target.value.trim().length < 1) {
+            setErrorMsg({ ...errorMsg, FirstName: "*Required FirstName" })
+        }
+        else {
+            let FirstName = e.target.value;
+            FirstName.replace(/[\sA-Za-z]/g, "") ? setErrorMsg({ ...errorMsg, FirstName: "*Number and Special Char. are not allowed" }) : setErrorMsg({ ...errorMsg, FirstName: "" })
+        }
         setFirstName(e.target.value);
     }
 
     const setLastNameHandler = (e) => {
+        if (e.target.value.trim().length < 1) {
+            setErrorMsg({ ...errorMsg, LastName: "*Required LastName" })
+        }
+        else {
+            let LastName = e.target.value;
+            LastName.replace(/[\sA-Za-z]/g, "") ? setErrorMsg({ ...errorMsg, LastName: "*Number and Special Charactor are not allowed" }) : setErrorMsg({ ...errorMsg, LastName: "" })
+        }
         setLastName(e.target.value);
     }
 
     const setHeightHandler = (e) => {
+
+        if (e.target.value.trim().length < 1) {
+            setErrorMsg({ ...errorMsg, Height: "*Required Height" })
+        }
+        else {
+            isNaN(e.target.value) ? setErrorMsg({ ...errorMsg, Height: "*Height must be a Number" }) : setErrorMsg({ ...errorMsg, Height: "" })
+        }
         setHeight(e.target.value);
     }
 
     const setPositionHandler = (e) => {
+        if (e.target.value.trim().length < 1) {
+            setErrorMsg({ ...errorMsg, Position: "*Required Position" })
+        }
+        else {
+            setErrorMsg({ ...errorMsg, Position: "" })
+        }
         setPosition(e.target.value);
     }
 

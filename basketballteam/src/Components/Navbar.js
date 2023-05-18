@@ -1,5 +1,5 @@
 import { AppBar, Box, Button } from '@mui/material'
-import React, { useState } from 'react'
+import React from 'react'
 
 const Navbar = (props) => {
 
@@ -13,7 +13,6 @@ const Navbar = (props) => {
 
     return (
         <div>
-
             <AppBar position="static">
                 <Box sx={{ marginRight: '85px', justifyContent: 'center', flexGrow: 10, display: { xs: 'none', md: 'flex' } }}>
                     <Button onClick={formPage} sx={{ my: 2, color: 'white', display: 'block' }}> Compose Team </Button>
@@ -21,8 +20,6 @@ const Navbar = (props) => {
                 </Box>
 
             </AppBar>
-            {/* <button onClick={formPage}>form</button>
-            <button onClick={listPage}>list</button> */}
         </div>
     )
 }

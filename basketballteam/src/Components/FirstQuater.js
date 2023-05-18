@@ -24,7 +24,7 @@ function FirstQuater(props) {
                                     props.formArray.map((ele,index)=>{
                                         // <div key={index}>
 
-                                           return( <MenuItem value={ele.FirstName}>{ele.FirstName}</MenuItem>);
+                                           return( <MenuItem key={index} value={ele.FirstName}>{ele.FirstName}</MenuItem>);
                                         // </div>
                                     })
                                 }

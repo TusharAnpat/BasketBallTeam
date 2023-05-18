@@ -58,6 +58,7 @@ function Composeteam(props) {
             setLastName('');
             setHeight('');
             setPosition('');
+            setErrorMsg({ FirstName: '', LastName: '', Height: '', Position: '' })
         }
     }
 
@@ -67,10 +68,18 @@ function Composeteam(props) {
         setLastName('');
         setHeight('');
         setPosition('');
+        setErrorMsg({ FirstName: '', LastName: '', Height: '', Position: '' })
     }
 
     return (
-        <div>
+        <div style={{
+            display: 'grid',
+            margin: '10px',
+            padding: '14px',
+            width: 500,
+            height: '400px',
+            border: '1px solid #C7BEBC'
+        }}>
             <div >
                 <TextField className='textBox'
                     // error={false}
@@ -79,7 +88,7 @@ function Composeteam(props) {
                     variant="standard"
                     label="First Name"
                     size="small"
-                    required
+                    
                     value={FirstName}
                 />
                 {errorMsg.FirstName && <span className="error" style={{ color: '#d32f2f' }}>{errorMsg.FirstName}</span>}
@@ -94,7 +103,7 @@ function Composeteam(props) {
                     label="Last Name"
                     size="small"
                     value={LastName}
-                    required
+                    
                 />
                 {errorMsg.LastName && <span className="error" style={{ color: '#d32f2f' }}>{errorMsg.LastName}</span>}
 
@@ -108,7 +117,7 @@ function Composeteam(props) {
                     variant="standard"
                     label="Height Name"
                     size="small"
-                    required
+                    
                 />
                 {errorMsg.Height && <span className="error" style={{ color: '#d32f2f' }}>{errorMsg.Height}</span>}
 
@@ -122,7 +131,7 @@ function Composeteam(props) {
                         value={Position}
                         onChange={setPositionHandler}
                         label="Position"
-                        required
+                        
                     >
                         <MenuItem value="Point Guard(PG)">Point Guard(PG)</MenuItem>
                         <MenuItem value="Shooting Guard(SG)">Shooting Guard(SG)</MenuItem>
